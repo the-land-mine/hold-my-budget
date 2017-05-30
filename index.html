@@ -9,7 +9,7 @@
     <div class="container text-center">
         <div class="jumbotron">
             <h3>Available budget in May 2017:</h3>
-            <div class="available-budget">0.00</div>
+            <div class="available-budget"> - 0.00</div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">Expenses: + 12000</div>
@@ -21,9 +21,13 @@
                 <div class="col-md-4"></div>
             </div>
         </div>
-        <div class="card card-inverse card-danger text-center">
-          <div class="card-block text-center">
-          <div class="text-center"><center>
+
+        <div class="card card-inverse card-danger">
+          
+          <div class="card-block">
+          <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-10 text-center centered">
             
 
 
@@ -33,7 +37,7 @@
 
             <form class="form-inline">
 
-                <div class="mb-8 mr-sm-5 mb-sm-0"></div>
+                <div class="mb-5 mr-sm-5 mb-sm-0"></div>
                 <select class="custom-select mb-8 mr-sm-3 mb-sm-0" id="type">
                   <option value="1" selected>+</option>
                   <option value="2">-</option>
@@ -49,16 +53,66 @@
 
               <button type="submit" class="btn btn-primary" id="submit">Submit</button>
             </form>
-            </center></div></div>
+            </div>
+          <div class="col-md-1"></div>
+
+            </div>
+            </div>
 
         </div>
     </div>
-    <br><br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-5">INCOME</div>
-            <div class="col-md-5">EXPENSES</div>
+            <div class="col-md-5 text-center">
+                INCOME
+                <br>
+                <br>
+                <table class="table table-hover" id="table-incomes">
+                  <thead>
+                    
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <td colspan="2">Done new project</td>
+                        <td colspan="2">20000</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <td colspan="2">Ad revenue</td>
+                    <td colspan="2">2000</td>
+                    <tr>
+                      <td colspan="2">Affiliate earnings</td>
+                      <td colspan="2">2500 </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="col-md-5 text-center">
+                EXPENSES
+                <br>
+                <br>
+                <table class="table table-hover">
+                  <thead>
+                    
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <td colspan="2">Bought new guitar</td>
+                        <td colspan="2">8000</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <td colspan="2">Bought new cloths</td>
+                    <td colspan="2">2000</td>
+                    <tr>
+                      <td colspan="2">Motorcycle maintaince</td>
+                      <td colspan="2">2500 </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
             <div class="col-md-1"></div>
             
         </div>
