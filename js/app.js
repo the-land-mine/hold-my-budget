@@ -1,15 +1,17 @@
 
+
+
 var Model = (function () {
     'use strict';
+   
     var data = {
-        items: {
-            inc: [],
-            exp: [],
-        },
+            items: {
+                inc: [],
+                exp: [],
+            },
 
-        totalBudget: 300,
+            totalBudget: 300,
     }
-
     
     
     return {
@@ -18,7 +20,23 @@ var Model = (function () {
                 //var type = type;
                 //var description = description;
                 //var value = value;
-                //Model.data.inc.id[0] = 12;
+                var newItem = {
+                    'id': 1,
+                    'description': description,
+                    'value': value
+                }
+
+                var value = parseFloat(value);
+                if (type === 'inc') {
+                    data.items.inc.push(newItem);
+                    data.totalBudget += value;
+                } else if (type === 'exp') {
+                    data.items.exp.push(newItem);
+                    data.totalBudget -= value;
+                } else {
+                    console.log('Invalid type');
+                }
+
                 //alert(9);
                 // nalert(type + ' ' + description + ' ' + value);
 
@@ -33,12 +51,12 @@ var Model = (function () {
         },
 
         getBudget: function() {
-            return Model.totalBudget;
+            return data.totalBudget;
         },
 
         test: function () {
             // body...
-            return Model.data;
+            return data;
             //alert(this.data[inc].id[0]);
 
         }
@@ -55,6 +73,8 @@ var View = (function () {
         "inputDescription": document.getElementById('description'),
         "inputValue": document.getElementById('value'),
         "btnSubmit": document.getElementById('submit'),
+        incomeTable: 'table-incomes',
+        expenseTable: 'table-expenses',
     }
 
 
@@ -64,7 +84,7 @@ var View = (function () {
 
     return {
         test: function() {
-        console.log(8888);
+        console.log('Function test invoked');
         Model.data[inc].id[0] = 12;
         alert(Model.data[inc].id[0]);
 
@@ -75,14 +95,26 @@ var View = (function () {
         },
 
         // Add new items to the DOM
-        addItem: function() {
+        addItem: function(type, description, value) {
 
+            var htmlTemplate, newHtml, targetTableDOM,
 
-            alert('view dom function')
+            htmlTemplate = '<tr><td colspan="2">%description%</td><td colspan="2">%value%</td></tr>';
+            newHtml = htmlTemplate.replace('%description%', description);
+            newHtml = newHtml.replace('%value%', value);
+
+            if (type == 'inc') {
+                targetTableDOM = document.getElementById(UIComponents.incomeTable);
+                targetTableDOM.insertAdjacentHTML('beforeend', newHtml);
+            } else if (type == 'exp') {
+                targetTableDOM = document.getElementById(UIComponents.expenseTable);
+                targetTableDOM.insertAdjacentHTML('beforeend', newHtml);
+            }
         },
 
         updateBudget: function() {
-
+            var availableBudget = document.querySelector('.available-budget');
+            availableBudget.textContent = '- ' + Model.getBudget();
         },
 
     }
@@ -93,25 +125,47 @@ var Controller = (function () {
 
         var DOM = View.getDOMStrings();
 
-        // Set focu to the  input descripion
-        DOM.inputDescription.setFocus();
-        
-        // Button click handler
-        DOM.btnSubmit.addEventListener('click', function () {
-        // Get input form the UI  
-        var type = DOM.inputType.value;
-        var description = DOM.inputDescription.value;
-        var value = DOM.inputValue.value;
-
-
-        // Adds item to the data structure
-        Model.addItem(type, description, value);
-
-        // Adds item to the view
-        View.addItem(type, description, value);
-
-        // Updates budget in UI
         View.updateBudget();
-    });
+        // Button  Submit click handler
+        DOM.btnSubmit.addEventListener('click', function () {
+
+            // Get input form the UI  
+            var type = DOM.inputType.value;
+            var description = DOM.inputDescription.value;
+            var value = DOM.inputValue.value;
+
+
+            if (type && description && value) {
+
+                // Clear input fields
+                DOM.inputDescription.value = "";
+                DOM.inputValue.value = "";
+
+                // Adds item to the data structure
+                Model.addItem(type, description, value);
+
+                // Adds item to the view
+                View.addItem(type, description, value);
+
+                // Updates budget in UI
+                View.updateBudget();
+
+            }
+            
+        });
+
+        var container = document.querySelector('.container');
+
+        // Button delete click handler
+        container.addEventListener('click', function(event) {
+            //alert('click container' + event.toElement);
+           console.log(event.target);
+//           console.log(event.target.parentNode.parentNode);
+           clickTarget = event.target;
+           clickTarget.removeElement;
+            if (event.target == '<button class="btn btn-round btn-secondary btn-delete">Delete</button>') {
+                alert(7);
+            }
+        });
 
 }());

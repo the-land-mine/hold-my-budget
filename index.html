@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div class="container text-center">
+    <div class="container-fluid text-center">
         <div class="jumbotron">
             <h3>Available budget in May 2017:</h3>
             <div class="available-budget"> - 0.00</div>
@@ -35,24 +35,24 @@
             
 
 
-            <form class="form-inline">
+            <div class="form-inline">
 
                 <div class="mb-5 mr-sm-5 mb-sm-0"></div>
                 <select class="custom-select mb-8 mr-sm-3 mb-sm-0" id="type">
-                  <option value="1" selected>+</option>
-                  <option value="2">-</option>
+                  <option value="inc" selected>+</option>
+                  <option value="exp">-</option>
                 </select>
 
-              <input type="text" class="form-control mb-2 mr-sm-3 mb-sm-0" id="description" placeholder="Description">
+              <input type="text" class="form-control mb-2 mr-sm-3 mb-sm-0" id="description" placeholder="Description" required autofocus>
               <div class="input-group mb-2 mr-sm-3 mb-sm-0">
                 
-                <input type="text" class="form-control" id="value" placeholder="Value">
+                <input type="number" class="form-control" id="value" placeholder="Value">
               </div>
 
              
 
-              <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-            </form>
+              <button class="btn btn-secondary" id="submit">Submit</button>
+            </div>
             </div>
           <div class="col-md-1"></div>
 
@@ -76,15 +76,15 @@
                   <tbody>
                     <tr>
                     <td colspan="2">Done new project</td>
-                        <td colspan="2">20000</td>
+                        <td colspan="2">
+                            20000 <button class="btn btn-round btn-secondary btn-delete">Delete</button>
+                        </td>
                     </tr>
-                    <tr>
-                    </tr>
-                    <td colspan="2">Ad revenue</td>
-                    <td colspan="2">2000</td>
                     <tr>
                       <td colspan="2">Affiliate earnings</td>
-                      <td colspan="2">2500 </td>
+                      <td colspan="2">
+                          20000 <button class="btn btn-round btn-secondary btn-delete">Delete</button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -93,22 +93,15 @@
                 EXPENSES
                 <br>
                 <br>
-                <table class="table table-hover">
+                <table class="table table-hover" id="table-expenses">
                   <thead>
-                    
                   </thead>
                   <tbody>
                     <tr>
-                    <td colspan="2">Bought new guitar</td>
-                        <td colspan="2">8000</td>
-                    </tr>
-                    <tr>
-                    </tr>
-                    <td colspan="2">Bought new cloths</td>
-                    <td colspan="2">2000</td>
-                    <tr>
-                      <td colspan="2">Motorcycle maintaince</td>
-                      <td colspan="2">2500 </td>
+                        <td colspan="2">Bought new guitar</td>
+                        <td colspan="2">
+                            20000 <button class="btn btn-round btn-secondary btn-delete">Delete</button>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
