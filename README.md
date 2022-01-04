@@ -1,2 +1,3 @@
-# budget-bucket
-A open source web application, where you can track your monthly budget.
+# HoldMyBudget
+
+A open souirse web application tro track and manage your expenses
