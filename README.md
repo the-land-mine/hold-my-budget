@@ -1,3 +1,3 @@
 # HoldMyExpenses
 
-A open souirse web application tro track and manage your expenses
+A open sourse web application to track and manage your expenses. Built with NextJs and Django.
