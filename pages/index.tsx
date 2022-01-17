@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </main>
-      <footer className="text-center border-t-2 py-5">
+      <footer className="text-center bg-gray-300 py-5">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
